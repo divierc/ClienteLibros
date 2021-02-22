@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Detalle del Autor</h1>
+
+  <a href="#" routerLink="/autor" class="btn btn-primary">Volver</a>
+
+<!--
+  * Campos de autor
+ "id": 3,
+ "nombre": "Maria Antonieta",
+ "apellido": "jaramillo",
+ "nombreCompleto": "Maria Antonieta jaramillo",
+ "fechaNacimiento": "1980-06-05T00:00:00",
+ "ciudadProcedencia": "Cali",
+ "correoElectronico": "dsfadsf@a.com" -->
+
+
+  <div>
+      <strong>ID:</strong>
+      <p>{{ autor.id }}</p>
+  </div>
+
+  <div>
+      <strong>Mombre:</strong>
+      <p>{{ autor.nombreCompleto }}</p>
+  </div>
+
+  <div>
+      <strong>Ciudad:</strong>
+      <p>{{ autor.ciudadProcedencia }}</p>
+  </div>
+  <div>
+    <strong>Correo Electronico:</strong>
+    <p>{{ autor.correoElectronico }}</p>
+  </div>
+
+</div>

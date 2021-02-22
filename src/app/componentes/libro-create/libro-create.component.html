@@ -1,0 +1,117 @@
+<div class="container">
+  <br />
+  <h1>Creación de Libro</h1>
+  <div class="col-lg-6 alineacion card">
+    <br />
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <a href="#" routerLink="/autor" class="btn btn-primary">Volver</a>
+      <br />
+      <div class="form-group">
+        <input
+          placeholder="Titulo"
+          id="titulo"
+          type="text"
+          class="form-control"
+          formControlName="titulo"
+        />
+        <div
+          *ngIf="f.titulo.touched && f.titulo.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f.titulo.errors?.required">Es requerido.</div>
+          <div *ngIf="f.titulo.errors?.minlength">
+            No puede ser menos de un caracter.
+          </div>
+          <div *ngIf="f.nombre.errors?.pattern">Solo pueden ser letras.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          placeholder="Año"
+          id="agno"
+          type="number"
+          class="form-control"
+          formControlName="agno"
+        />
+        <div
+          *ngIf="f.agno.touched && f.agno.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f.agno.errors?.required">Es requerido.</div>
+          <div *ngIf="f.agno.errors?.minlength">
+            No puede ser menos de cuatro caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+
+        <select class="form-control" (change)="changeGenero($event)" formControlName="genero">
+          <option value="">Selecciones el genero</option>
+          <option *ngFor="let genero of libro.generos">{{genero}}</option>
+       </select>
+
+
+        <div
+          *ngIf="f.genero.touched && f.genero.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f.titulo.errors?.required">Es requerido.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          placeholder="Numero de paginas"
+          id="numeroPaginas"
+          type="number"
+          class="form-control"
+          formControlName="numeroPaginas"
+        />
+        <div
+          *ngIf="f.numeroPaginas.touched && f.numeroPaginas.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f.numeroPaginas.errors?.required">Es requerido.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          placeholder="Editorial"
+          id="editorialId"
+          type="number"
+          class="form-control"
+          formControlName="editorialId"
+        />
+        <div
+          *ngIf="f.editorialId.touched && f.editorialId.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f.editorialId.errors?.required">Es requerido.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input
+          placeholder="Autor"
+          id="autorId"
+          type="number"
+          class="form-control"
+          formControlName="autorId"
+        />
+        <div
+          *ngIf="f.autorId.touched && f.autorId.invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f.autorId.errors?.required">Es requerida.</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+        Aceptar
+      </button>
+    </form>
+    <br />
+  </div>
+</div>

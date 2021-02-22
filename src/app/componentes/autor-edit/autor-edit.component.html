@@ -1,0 +1,123 @@
+<div class="container">
+  <h1>Actualizar Autor</h1>
+
+  <a href="#" routerLink="/autor" class="btn btn-primary">Volver</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="title">Nombre:</label>
+      <input
+        placeholder="nombre"
+        id="nombre"
+        type="text"
+        [(ngModel)]="autor.nombre"
+        class="form-control"
+        formControlName="nombre"
+      />
+      <div
+        *ngIf="f.nombre.touched && f.nombre.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.nombre.errors?.required">Es requerida.</div>
+        <div *ngIf="f.nombre.errors?.minlength">
+          No puede ser menos de tres caracteres.
+        </div>
+        <div *ngIf="f.nombre.errors?.pattern">Solo pueden ser letras.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Apellido:</label>
+      <input
+
+        placeholder="Apellido"
+        id="apellido"
+        type="text"
+        [(ngModel)]="autor.apellido"
+        class="form-control"
+        formControlName="apellido"
+      />
+      <div
+        *ngIf="f.apellido.touched && f.apellido.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.apellido.errors?.required">Es requerida.</div>
+        <div *ngIf="f.apellido.errors?.minlength">
+          No puede ser menos de tres caracteres.
+        </div>
+        <div *ngIf="f.apellido.errors?.pattern">Solo pueden ser letras.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Fecha de Nacimiento:</label>
+      <input
+        placeholder="Fecha de Nacimiento"
+        id="fechaNacimiento"
+        type="date"
+        [(ngModel)]= "autor.fechaNacimiento"
+        class="form-control"
+        formControlName="fechaNacimiento"
+      />
+      <div
+        *ngIf="f.fechaNacimiento.touched && f.fechaNacimiento.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.fechaNacimiento.errors?.required">Es requerida.</div>
+        <div *ngIf="f.apellido.errors?.pattern">Solo pueden ser fechas.</div>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="title">Ciudad de Nacimiento:</label>
+      <input
+        placeholder="Ciudad de Nacimiento"
+        id="ciudadProcedencia"
+        type="text"
+        [(ngModel)]="autor.ciudadProcedencia"
+        class="form-control"
+        formControlName="ciudadProcedencia"
+      />
+      <div
+        *ngIf="f.ciudadProcedencia.touched && f.ciudadProcedencia.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.ciudadProcedencia.errors?.required">Es requerida.</div>
+        <div *ngIf="f.ciudadProcedencia.errors?.minlength">
+          No puede ser menos de tres caracteres.
+        </div>
+        <div *ngIf="f.ciudadProcedencia.errors?.pattern">
+          Solo pueden ser letras.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="title">Correo Electronico:</label>
+      <input
+        placeholder="Correo Electronico"
+        id="correoElectronico"
+        type="text"
+        [(ngModel)]="autor.correoElectronico"
+        class="form-control"
+        formControlName="correoElectronico"
+      />
+      <div
+        *ngIf="f.correoElectronico.touched && f.correoElectronico.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.correoElectronico.errors?.required">Es requerida.</div>
+        <div *ngIf="f.correoElectronico.errors?.pattern">
+          No es un correo.
+        </div>
+      </div>
+    </div>
+
+
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Actualizar
+    </button>
+  </form>
+</div>

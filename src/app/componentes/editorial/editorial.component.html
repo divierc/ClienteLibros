@@ -1,0 +1,56 @@
+<div class="container">
+
+
+  <a href="#" routerLink="/editorial/create/" class="btn btn-success"
+    >Nueva Editorial</a
+  >
+  <br />
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Telefono</th>
+      <th>Correo</th>
+      <th>Max. Libros</th>
+      <th width="240px">Acción</th>
+    </tr>
+    <!--
+    public id: number;
+    public nombre: string;
+    public direccion: string;
+    public telefono: number;
+    public correoElectronico: string;
+    public maxLibros: number = -1;
+    -->
+
+    <tr *ngFor="let editorial of editoriales">
+      <td>{{ editorial.id }}</td>
+      <td>{{ editorial.nombre }}</td>
+      <td>{{ editorial.direccion }}</td>
+      <td>{{ editorial.telefono }}</td>
+      <td>{{ editorial.correoElectronico }}</td>
+      <td>{{ editorial.maxLibros }}</td>
+
+      <td>
+        <a
+          href="#"
+          [routerLink]="['/editorial/', editorial.id, 'view']"
+          class="btn btn-info"
+          >Detalle</a
+        >
+
+        <a
+          href="#"
+          [routerLink]="['/editorial/', editorial.id, 'edit']"
+          class="btn btn-primary"
+          >Editar</a
+        >
+
+        <button type="button" (click)="delete(editorial.id)" class="btn btn-danger">
+          Borrar
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

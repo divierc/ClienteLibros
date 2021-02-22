@@ -1,0 +1,54 @@
+<div class="container">
+  <!--
+    "id": 3,
+    "nombre": "Maria Antonieta",
+    "apellido": "jaramillo",
+    "nombreCompleto": "Maria Antonieta jaramillo",
+    "fechaNacimiento": "1980-06-05T00:00:00",
+    "ciudadProcedencia": "Cali",
+    "correoElectronico": "dsfadsf@a.com"
+    -->
+
+  <a href="#" routerLink="/autor/create/" class="btn btn-success"
+    >Nuevo Autor</a
+  >
+  <br />
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Fecha Nacimiento</th>
+      <th>Ciudad Procedencia</th>
+      <th>Correo</th>
+      <th width="240px">Acción</th>
+    </tr>
+
+    <tr *ngFor="let autor of autores">
+      <td>{{ autor.id }}</td>
+      <td>{{ autor.nombreCompleto }}</td>
+      <td>{{ autor.fechaNacimiento }}</td>
+      <td>{{ autor.ciudadProcedencia }}</td>
+      <td>{{ autor.correoElectronico }}</td>
+
+      <td>
+        <a
+          href="#"
+          [routerLink]="['/autor/', autor.id, 'view']"
+          class="btn btn-info"
+          >Detalle</a
+        >
+
+        <a
+          href="#"
+          [routerLink]="['/autor/', autor.id, 'edit']"
+          class="btn btn-primary"
+          >Editar</a
+        >
+
+        <button type="button" (click)="delete(autor.id)" class="btn btn-danger">
+          Borrar
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

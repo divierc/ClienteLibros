@@ -1,0 +1,53 @@
+<div class="container">
+  <!--
+    "titulo": "ejemplo10 ",
+    "agno": 1980,
+    "genero": "cronica",
+    "numeroPaginas": 2,
+    "editorialId": 4,
+    "autorId": 15
+    -->
+
+  <a href="#" routerLink="/libro/create/" class="btn btn-success"
+    >Nuevo libro</a
+  >
+  <br />
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>titulo</th>
+      <th>Año</th>
+      <th>Genero</th>
+      <th>Número de Páginas</th>
+      <th width="240px">Acción</th>
+    </tr>
+
+    <tr *ngFor="let libro of libros">
+      <td>{{ libro.id }}</td>
+      <td>{{ libro.titulo }}</td>
+      <td>{{ libro.agno }}</td>
+      <td>{{ libro.genero }}</td>
+      <td>{{ libro.numeroPaginas }}</td>
+
+      <td>
+        <a
+          href="#"
+          [routerLink]="['/libro/', libro.id, 'view']"
+          class="btn btn-info"
+          >Detalle</a
+        >
+
+        <a
+          href="#"
+          [routerLink]="['/libro/', libro.id, 'edit']"
+          class="btn btn-primary"
+          >Editar</a
+        >
+
+        <button type="button" (click)="delete(libro.id)" class="btn btn-danger">
+          Borrar
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

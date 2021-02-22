@@ -1,0 +1,117 @@
+<div class="container">
+  <h1>Actualizar Editorial</h1>
+
+  <a href="#" routerLink="/autor" class="btn btn-primary">Volver</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+    <div class="form-group">
+      <label for="title">Nombre:</label>
+      <input
+        placeholder="nombre"
+        id="nombre"
+        type="text"
+        [(ngModel)]="editorial.nombre"
+        class="form-control"
+        formControlName="nombre"
+      />
+      <div
+        *ngIf="f.nombre.touched && f.nombre.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.nombre.errors?.required">Es requerida.</div>
+        <div *ngIf="f.nombre.errors?.minlength">
+          No puede ser menos de tres caracteres.
+        </div>
+        <div *ngIf="f.nombre.errors?.pattern">Solo pueden ser letras.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Dirección:</label>
+      <input
+
+        placeholder="Dirección"
+        id="direccion"
+        type="text"
+        [(ngModel)]="editorial.direccion"
+        class="form-control"
+        formControlName="direccion"
+      />
+      <div
+        *ngIf="f.direccion.touched && f.direccion.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.direccion.errors?.required">Es requerida.</div>
+        <div *ngIf="f.direccion.errors?.minlength">
+          No puede ser menos de tres caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Telefono</label>
+      <input
+        placeholder="Telefono"
+        id="telefono"
+        type="number"
+        [(ngModel)]="editorial.telefono"
+        class="form-control"
+        formControlName="telefono"
+      />
+      <div
+        *ngIf="f.telefono.touched && f.telefono.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.telefono.errors?.required">Es requerido.</div>
+        <div *ngIf="f.telefono.errors?.minlength">
+          No puede ser menos de siete caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Correo Electronico:</label>
+      <input
+        placeholder="Correo Electronico"
+        id="correoElectronico"
+        type="text"
+        [(ngModel)]="editorial.correoElectronico"
+        class="form-control"
+        formControlName="correoElectronico"
+      />
+      <div
+        *ngIf="f.correoElectronico.touched && f.correoElectronico.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.correoElectronico.errors?.required">Es requerida.</div>
+        <div *ngIf="f.correoElectronico.errors?.pattern">
+          No es un correo.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Max. Libros:</label>
+      <input
+        placeholder="Max. Libros"
+        id="maxLibros"
+        type="number"
+        [(ngModel)]="editorial.maxLibros"
+        class="form-control"
+        formControlName="maxLibros"
+      />
+      <div
+        *ngIf="f.maxLibros.touched && f.maxLibros.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.maxLibros.errors?.min">Valor no valido.</div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Actualizar
+    </button>
+  </form>
+</div>
