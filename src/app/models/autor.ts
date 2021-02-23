@@ -1,24 +1,20 @@
 export class Autor {
-  public id: number;
-  public nombre: string;
-  public apellido: string;
+  public id: number=0;
+  public nombre: string='';
+  public apellido: string='';
   public fechaNacimiento: Date;
-  public ciudadProcedencia: string;
-  public correoElectronico: string;
+  public ciudadProcedencia: string='';
+  public correoElectronico: string='';
   private _nombreCompleto: string;
 
   public get nombreCompleto() : string {
-    return '${this.nombre} {this.apellido}'  ;
+    return  this.nombre + ' ' + this.apellido ;
   }
-  private set value(v : string) {
+  public set nombreCompleto(v : string) {
     this._nombreCompleto = v;
   }
 
-  /**
-   *
-   */
-  constructor() {
+    constructor() { }
 
-  }
 }
 

@@ -27,7 +27,7 @@ export class EditorialService {
       .pipe(catchError(this.errorHandler));
   }
 
-  get(id): Observable<Editorial> {
+  get(id: number): Observable<Editorial> {
     return this.httpClient
       .get<Editorial>(this.apiURL + this.apiPath + id)
       .pipe(catchError(this.errorHandler));

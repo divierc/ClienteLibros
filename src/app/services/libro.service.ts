@@ -43,15 +43,15 @@ export class LibroService {
       .pipe(catchError(this.errorHandler));
   }
 
-  optenerLibroAutor(id): Observable<Libro> {
+  optenerLibroAutor(autorId): Observable<Libro> {
     return this.httpClient
-      .get<Libro>(this.apiURL + this.apiPath + 'GetLibrosPorAutor/' + id)
+      .get<Libro>(this.apiURL + this.apiPath + 'GetLibrosPorAutor/' + autorId)
       .pipe(catchError(this.errorHandler));
   }
 
-  optenerLibroEditorial(id): Observable<Libro> {
+  optenerLibroEditorial(editorialId): Observable<Libro> {
     return this.httpClient
-      .get<Libro>(this.apiURL + this.apiPath + 'GetLibrosPorEditorial/'+ id)
+      .get<Libro>(this.apiURL + this.apiPath + 'GetLibrosPorEditorial/'+ editorialId)
       .pipe(catchError(this.errorHandler));
   }
 

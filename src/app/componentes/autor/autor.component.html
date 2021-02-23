@@ -26,7 +26,7 @@
     <tr *ngFor="let autor of autores">
       <td>{{ autor.id }}</td>
       <td>{{ autor.nombreCompleto }}</td>
-      <td>{{ autor.fechaNacimiento }}</td>
+      <td>{{ autor.fechaNacimiento | date : 'dd/MM/yyyy' }}</td>
       <td>{{ autor.ciudadProcedencia }}</td>
       <td>{{ autor.correoElectronico }}</td>
 
